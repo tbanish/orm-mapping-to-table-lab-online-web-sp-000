@@ -16,6 +16,7 @@ class Student
       grade TEXT
       )
     SQL
+    
     DB[:conn].execute(sql)
   end
   
@@ -23,6 +24,7 @@ class Student
     sql = <<-SQL
     DROP TABLE students
     SQL
+    
     DB[:conn].execute(sql)
   end
   
@@ -31,7 +33,9 @@ class Student
     INSERT INTO students (name, grade)
     VALUES (?, ?)
     SQL
+    
     DB[:conn].execute(sql)
+    
     @id = DB[:conn].execute("Select last_insert_rowid() FROM students")[0][0]
   end
     
