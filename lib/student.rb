@@ -32,7 +32,7 @@ class Student
     VALUES (?, ?)
     SQL
     DB[:conn].execute(sql)
-    @id = DB[:conn].execute("Select last_insert_row")
+    @id = DB[:conn].execute("Select last_insert_rowid")
   end
     
     
